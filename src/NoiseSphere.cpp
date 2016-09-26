@@ -27,7 +27,7 @@ void NoiseSphere::setup(){
     SphereParams.add(shapeWarp.set("Shape Warp", 0, 0,7));
     SphereParams.add(lineCount.set("Line Count", 40, 1,70));
     SphereParams.add(nestCount.set("Nest Count", 2, 1,20));
-    SphereParams.add(startRadius.set("Start Radius", 300, 1,1000));
+    SphereParams.add(startRadius.set("Start Radius", 100, 1,1000));
     
     for (int i=0; i<numSpheres; i++){
         SingleSphere temp;

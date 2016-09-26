@@ -15,8 +15,8 @@ void ofApp::draw(){
     ofBackground(0, 0, 0);
     
     cam.begin();
-    ofRotateZ(ofGetElapsedTimef()*2);
-        ofRotateX(ofGetElapsedTimef()*3);
+    ofRotateZ(ofGetElapsedTimef()*7);
+        ofRotateX(ofGetElapsedTimef()*10);
     sphere.draw();
     cam.end();
 }
