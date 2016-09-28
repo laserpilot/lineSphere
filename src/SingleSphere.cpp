@@ -23,6 +23,7 @@ void SingleSphere::setup(int _idIndex, int _maxNumPts, float _radius){
 void SingleSphere::update(){
     
     noiseCursor +=0.004;
+    noiseCursor = ofWrap(noiseCursor,0,50000);
     
     timePts.push_back(noiseCursor);
     if(timePts.size()>maxNumPts){
@@ -81,7 +82,7 @@ void SingleSphere::draw(){
         if(indexId>0){
             lineMesh.addColor(ofColor(255,255,255,ofMap(j,0,pts.size(),0,255)));
         }else{
-           // lineMesh.addColor(ofColor(255,j*4,255,ofMap(j,0,pts.size(),0,255)));
+            lineMesh.addColor(ofColor(255,ofWrap(noiseCursor,0,255),255,ofMap(j,0,pts.size(),0,255)));
         }
         
     }

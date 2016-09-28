@@ -21,6 +21,26 @@ public:
     ofParameterGroup getParameters();
     
     
+    void setStartRadius(float _radius){
+        startRadius = _radius;
+    }
+    
+    void setNestCount(int _count){
+        nestCount = _count;
+    }
+    
+    void setLineCount(int _count){
+        lineCount = _count;
+    }
+    
+    void setTurbulence(float _turb){
+        turbulence=_turb;
+    }
+    
+    void setShapeWarp(float _warp){
+        shapeWarp = _warp;
+    }
+    
     void setDisruptor(float _disruptor){
         disruptor = _disruptor;
     }
@@ -29,7 +49,7 @@ private:
     string name;
     
     vector<SingleSphere> sph;
-    int numSpheres;
+    int numLines;
     ofParameterGroup SphereParams;
     ofParameter <float> turbulence;
     ofParameter <float> shapeWarp;
@@ -38,5 +58,6 @@ private:
     ofParameter <int> startRadius;
     
     float disruptor;
+
     
 };

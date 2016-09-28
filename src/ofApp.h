@@ -25,5 +25,7 @@ class ofApp : public ofBaseApp{
     NoiseSphere sphere;
     
     ofEasyCam cam;
+    
+    float counter;
 		
 };

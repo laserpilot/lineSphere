@@ -18,7 +18,7 @@ NoiseSphere::~NoiseSphere(){
 
 void NoiseSphere::setup(){
     
-    numSpheres = 20;
+    numLines = 20;
     
 
     
@@ -29,7 +29,7 @@ void NoiseSphere::setup(){
     SphereParams.add(nestCount.set("Nest Count", 2, 1,20));
     SphereParams.add(startRadius.set("Start Radius", 100, 1,1000));
     
-    for (int i=0; i<numSpheres; i++){
+    for (int i=0; i<numLines; i++){
         SingleSphere temp;
         temp.setup(i, ofRandom(50,300), 30+(i%5)*20);
         sph.push_back(temp);
