@@ -27,5 +27,9 @@ class ofApp : public ofBaseApp{
     ofEasyCam cam;
     
     float counter;
+    
+    int radiusOffset;
+    
+    bool turbEnable, warpEnable, pulseEnable;
 		
 };

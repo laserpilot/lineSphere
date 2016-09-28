@@ -4,7 +4,9 @@
 void ofApp::setup(){
     sphere.setup();
     counter = 0;
+    radiusOffset= 500;
     
+    turbEnable = pulseEnable = warpEnable = true;
 }
 
 //--------------------------------------------------------------
@@ -19,10 +21,29 @@ void ofApp::update(){
 void ofApp::draw(){
     ofBackground(0, 0, 0);
     
+    if(warpEnable){
+        sphere.setShapeWarp(3.5*ofSignedNoise(counter*0.02, counter*0.001));
+    }else{
+        sphere.setShapeWarp(0);
+    }
     
-    sphere.setShapeWarp(3.5*ofSignedNoise(counter*0.02, counter*0.001));
-    sphere.setStartRadius(800+700*ofSignedNoise(counter*0.01, counter*0.004,200));
-        sphere.setTurbulence(1*ofSignedNoise(counter*0.001+400, counter*0.004,600));
+    if(pulseEnable){
+        sphere.setStartRadius(radiusOffset+(radiusOffset-100)*ofSignedNoise(counter*0.01, counter*0.004,200));
+ 
+    }else{
+        sphere.setStartRadius(radiusOffset);
+
+    }
+    
+    if(turbEnable){
+        sphere.setTurbulence(ofClamp(1*ofSignedNoise(counter*0.0001+400, counter*0.0004,600),0,1));
+
+    }else{
+        sphere.setTurbulence(0);
+ 
+    }
+    
+    
     cam.begin();
     ofRotateZ(counter*7);
     ofRotateX(counter*10);
@@ -32,7 +53,25 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    if(key=='1'){
+        radiusOffset +=50;
+    }
+    
+    if(key=='2'){
+        radiusOffset -=50;
+    }
+    
+    if(key=='3'){
+        warpEnable = !warpEnable;
+    }
+    
+    if(key=='4'){
+        turbEnable = !turbEnable;
+    }
+    
+    if(key=='5'){
+        pulseEnable = !pulseEnable;
+    }
 }
 
 //--------------------------------------------------------------

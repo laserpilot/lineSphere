@@ -82,7 +82,9 @@ void SingleSphere::draw(){
         if(indexId>0){
             lineMesh.addColor(ofColor(255,255,255,ofMap(j,0,pts.size(),0,255)));
         }else{
-            lineMesh.addColor(ofColor(255,ofWrap(noiseCursor,0,255),255,ofMap(j,0,pts.size(),0,255)));
+            ofColor temp = ofColor(0,255,0);
+            temp.setHueAngle(ofWrap(noiseCursor*5,0,360));
+            lineMesh.addColor(ofColor(temp.r, temp.g, temp.b,ofMap(j,0,pts.size(),0,255)));
         }
         
     }
